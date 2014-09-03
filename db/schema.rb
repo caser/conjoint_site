@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903000546) do
+ActiveRecord::Schema.define(version: 20140903185124) do
 
   create_table "experiments", force: true do |t|
     t.datetime "created_at"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140903000546) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.text     "levels"
   end
 
   add_index "factors", ["experiment_id"], name: "index_factors_on_experiment_id"

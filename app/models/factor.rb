@@ -1,5 +1,7 @@
 class Factor < ActiveRecord::Base
   belongs_to :experiment
 
-  validates :title, presence: true
+  serialize :levels
+
+  validates :title, :levels, presence: true
 end
