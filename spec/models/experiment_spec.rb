@@ -1,9 +1,17 @@
 require 'spec_helper'
 
 describe Experiment do
-  it "should be invalid without a name" do
-    experiment = Experiment.new name: nil
+  it "should be invalid without a title" do
+    experiment = Experiment.new title: nil
     experiment.should_not be_valid
+  end
+
+  it "should persist the title to the database" do
+    experiment = build(:experiment)
+    title = experiment.title
+    experiment.save
+    experiment2 = Experiment.find_by_title(title)
+    experiment2.should_not be_nil
   end
 
   it "should have many factors" do

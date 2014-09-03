@@ -2,7 +2,7 @@ class Experiment < ActiveRecord::Base
   has_many :factors
   has_many :surveys
 
-  attr_accessor :name
+  serialize :full_factorial_design
 
-  validates :name, presence: true
+  validates :title, presence: true
 end
