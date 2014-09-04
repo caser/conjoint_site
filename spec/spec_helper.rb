@@ -39,4 +39,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Automatically use 'full documentation' setting in RSpec
+  # Lists all tests and results
+  config.formatter = :documentation
 end

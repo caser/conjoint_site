@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904195922) do
+ActiveRecord::Schema.define(version: 20140904225711) do
 
   create_table "experiment_designers", force: true do |t|
     t.datetime "created_at"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140904195922) do
     t.integer  "factorial_tree_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
 
   add_index "nodes", ["factorial_tree_id"], name: "index_nodes_on_factorial_tree_id"
