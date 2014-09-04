@@ -352,3 +352,54 @@ SQLite3::SQLException: duplicate column name: experiment_id: ALTER TABLE "survey
   [1m[36mSurvey Load (0.4ms)[0m  [1mSELECT "surveys".* FROM "surveys" ORDER BY "surveys"."id" ASC LIMIT 1[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:03:56 UTC +00:00], ["full_factorial_design", nil], ["title", "Nulla et est ex."], ["updated_at", Thu, 04 Sep 2014 00:03:56 UTC +00:00]]
+  [1m[35m (8.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 00:04:10 UTC +00:00], ["full_factorial_design", nil], ["title", "Nulla et est ex."], ["updated_at", Thu, 04 Sep 2014 00:04:10 UTC +00:00]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from irb_binding at (irb):4)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from irb_binding at (irb):5)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from irb_binding at (irb):3)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (12.3ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 00:19:34 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:19:34 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:19:34 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:19:34 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 00:19:34 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:19:34 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mExperiment Load (0.4ms)[0m  SELECT "experiments".* FROM "experiments" ORDER BY "experiments"."id" ASC LIMIT 1
+  [1m[36mExperiment Load (0.3ms)[0m  [1mSELECT "experiments".* FROM "experiments" ORDER BY "experiments"."id" DESC LIMIT 1[0m
+  [1m[35mFactor Load (0.5ms)[0m  SELECT "factors".* FROM "factors" ORDER BY "factors"."id" ASC LIMIT 1
+  [1m[36mFactor Load (0.4ms)[0m  [1mSELECT "factors".* FROM "factors" ORDER BY "factors"."id" DESC LIMIT 1[0m
+  [1m[35mFactor Load (0.2ms)[0m  SELECT "factors".* FROM "factors"
+  [1m[36mExperiment Load (0.3ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mFactor Load (0.2ms)[0m  SELECT "factors".* FROM "factors"
+  [1m[36mExperiment Load (0.2ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mFactor Load (0.2ms)[0m  SELECT "factors".* FROM "factors"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["full_factorial_design", nil], ["title", "Sed placeat dolorem fugit ut dignissimos rerum omnis magni."], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["experiment_id", 11], ["levels", "---\n- velit\n- voluptatem\n- deserunt\n- mollitia\n"], ["title", "Neque"], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["experiment_id", 11], ["levels", "---\n- velit\n- voluptatem\n- deserunt\n- mollitia\n"], ["title", "Neque"], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00], ["experiment_id", 11], ["levels", "---\n- velit\n- voluptatem\n- deserunt\n- mollitia\n"], ["title", "Neque"], ["updated_at", Thu, 04 Sep 2014 00:23:22 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mFactor Load (0.4ms)[0m  [1mSELECT "factors".* FROM "factors"[0m
+  [1m[35mFactor Load (0.2ms)[0m  SELECT "factors".* FROM "factors"
+  [1m[36mExperiment Load (0.2ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
