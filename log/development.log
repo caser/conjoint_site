@@ -323,3 +323,32 @@ Migrating to AddFullFactorialDesignToExperiments (20140903190921)
   [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
   [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 03 Sep 2014 23:58:32 UTC +00:00], ["full_factorial_design", nil], ["title", "Nulla et est ex."], ["updated_at", Wed, 03 Sep 2014 23:58:32 UTC +00:00]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveExperimentIdFromExperiments (20140903235944)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "aexperiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "experiment_id" integer, "title" varchar(255), "full_factorial_design" text) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "experiments"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","experiment_id","title","full_factorial_design") VALUES (1, '2014-09-03 18:55:56.949418', '2014-09-03 19:15:10.029833', NULL, 'title', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","experiment_id","title","full_factorial_design") VALUES (2, '2014-09-03 23:58:32.946495', '2014-09-03 23:58:32.946495', NULL, 'Nulla et est ex.', NULL)
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE "experiments"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aexperiments"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","full_factorial_design") VALUES (1, '2014-09-03 18:55:56.949418', '2014-09-03 19:15:10.029833', 'title', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","full_factorial_design") VALUES (2, '2014-09-03 23:58:32.946495', '2014-09-03 23:58:32.946495', 'Nulla et est ex.', NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aexperiments"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140903235944"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to AddExperimentIdToSurveys (20140904000015)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "surveys" ADD "experiment_id" varchar(255)
+SQLite3::SQLException: duplicate column name: experiment_id: ALTER TABLE "surveys" ADD "experiment_id" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "surveys" ("created_at", "experiment_id", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 00:02:28 UTC +00:00], ["experiment_id", 1], ["updated_at", Thu, 04 Sep 2014 00:02:28 UTC +00:00]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  [1m[36mSurvey Load (0.4ms)[0m  [1mSELECT "surveys".* FROM "surveys" ORDER BY "surveys"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
