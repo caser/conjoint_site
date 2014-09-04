@@ -403,3 +403,183 @@ DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a rel
   [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
   [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 11]]
   [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902180832')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902181405')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902185223')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902195649')[0m
+  [1m[35m (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903000546')
+  [1m[36m (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190921')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) 
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902180832')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902181405')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902185223')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902195649')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903000546')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190921')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateExperimentDesigners (20140904180045)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140904180045"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904180045')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902180832')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902181405')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902185223')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902195649')
+  [1m[36m (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903000546')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903185124')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190231')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190921')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 18:09:42 UTC +00:00], ["full_factorial_design", nil], ["title", "Et qui aut enim quod dolor."], ["updated_at", Thu, 04 Sep 2014 18:09:42 UTC +00:00]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 18:09:42 UTC +00:00], ["full_factorial_design", nil], ["title", "Et qui aut enim quod dolor."], ["updated_at", Thu, 04 Sep 2014 18:09:42 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 18:09:42 UTC +00:00], ["full_factorial_design", nil], ["title", "Et qui aut enim quod dolor."], ["updated_at", Thu, 04 Sep 2014 18:09:42 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFactorialTrees (20140904183935)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "factorial_trees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140904183935"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (10.7ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "factorial_trees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) 
+  [1m[36m (1.8ms)[0m  [1mCREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.7ms)[0m  [1mCREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904183935')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902180832')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902181405')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902185223')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902195649')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903000546')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190921')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903235944')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904180045')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "factorial_trees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) 
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.6ms)[0m  [1mCREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904183935')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902180832')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902181405')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902185223')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902195649')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903000546')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190921')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903235944')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904180045')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "factorial_trees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) 
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.7ms)[0m  [1mCREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904183935')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902180832')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902181405')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902185223')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902195649')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903000546')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190921')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903235944')
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904180045')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateNodes (20140904195922)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "factorial_tree_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_nodes_on_factorial_tree_id" ON "nodes" ("factorial_tree_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140904195922"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "factorial_trees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) 
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "factorial_tree_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_nodes_on_factorial_tree_id" ON "nodes" ("factorial_tree_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904195922')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902180832')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902181405')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902185223')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902195649')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903000546')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903185124')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190231')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190921')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903235944')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904180045')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904183935')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
