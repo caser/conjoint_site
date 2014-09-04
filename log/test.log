@@ -1258,3 +1258,993 @@ TypeError: can't cast Array to string: INSERT INTO "experiments" ("created_at", 
   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.2ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "factorial_trees";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'factorial_trees';
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "factors";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'factors';[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM "nodes";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- aut\n- in\n- magni\n- nulla\n"], ["title", "Earum"], ["updated_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00]]
+  [1m[36mFactor Load (0.2ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Earum' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Harum suscipit et non consectetur ducimus.' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:44 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00], ["full_factorial_design", nil], ["title", "Harum suscipit et non consectetur ducimus."], ["updated_at", Thu, 04 Sep 2014 23:09:45 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "factorial_trees";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'factorial_trees';
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM "factors";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'factors';[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "nodes";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- modi\n- recusandae\n- eius\n- sint\n"], ["title", "Voluptatem"], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35mFactor Load (0.2ms)[0m  SELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Voluptatem' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00], ["full_factorial_design", nil], ["title", "Veniam perspiciatis ab dolorem."], ["updated_at", Thu, 04 Sep 2014 23:30:27 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Veniam perspiciatis ab dolorem.' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "factorial_trees";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'factorial_trees';
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "factors";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'factors';[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "nodes";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- accusantium\n- porro\n- totam\n- maiores\n"], ["title", "Nemo"], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36mFactor Load (0.2ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Nemo' LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Voluptate debitis nesciunt nam sequi harum et.' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00], ["full_factorial_design", nil], ["title", "Voluptate debitis nesciunt nam sequi harum et."], ["updated_at", Thu, 04 Sep 2014 23:35:30 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.4ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.4ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "factorial_trees";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'factorial_trees';
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "factors";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'factors';[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "nodes";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:02 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:02 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Velit eum culpa animi inventore ad ut.' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- quidem\n- illum\n- accusamus\n- quasi\n"], ["title", "Illo"], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35mFactor Load (0.1ms)[0m  SELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Illo' LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00], ["full_factorial_design", nil], ["title", "Velit eum culpa animi inventore ad ut."], ["updated_at", Thu, 04 Sep 2014 23:37:03 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.4ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "factorial_trees";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'factorial_trees';
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "factors";[0m
+  [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'factors';[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "nodes";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.4ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- id\n- neque\n- non\n- voluptatem\n"], ["title", "Asperiores"], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36mFactor Load (0.2ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Asperiores' LIMIT 1[0m
+  [1m[35m (7.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (2.6ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00], ["full_factorial_design", nil], ["title", "Commodi ut aspernatur omnis explicabo culpa."], ["updated_at", Thu, 04 Sep 2014 23:38:57 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Commodi ut aspernatur omnis explicabo culpa.' LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.1ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (0.9ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (10.3ms)[0m  DELETE FROM "factorial_trees";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'factorial_trees';
+  [1m[36m (2.5ms)[0m  [1mDELETE FROM "factors";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'factors';[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM "nodes";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35m (7.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (2.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "nodes" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "nodes" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- fugiat\n- repellendus\n- possimus\n- quos\n"], ["title", "Veniam"], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36mFactor Load (0.2ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Veniam' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "full_factorial_design", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00], ["full_factorial_design", nil], ["title", "Est architecto est sequi delectus nulla et omnis."], ["updated_at", Thu, 04 Sep 2014 23:39:43 UTC +00:00]]
+  [1m[35mExperiment Load (0.3ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Est architecto est sequi delectus nulla et omnis.' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m

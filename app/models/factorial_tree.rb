@@ -1,3 +1,3 @@
 class FactorialTree < ActiveRecord::Base
-  has_many :nodes
+  has_one :root, class_name: "Node"
 end

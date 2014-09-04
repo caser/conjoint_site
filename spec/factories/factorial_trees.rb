@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :factorial_tree do
+    root
   end
 end
