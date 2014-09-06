@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905003142) do
+ActiveRecord::Schema.define(version: 20140906034621) do
 
   create_table "experiment_designers", force: true do |t|
     t.datetime "created_at"
@@ -25,11 +25,6 @@ ActiveRecord::Schema.define(version: 20140905003142) do
     t.text     "full_factorial_design"
   end
 
-  create_table "factorial_trees", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "factors", force: true do |t|
     t.integer  "experiment_id"
     t.datetime "created_at"
@@ -39,16 +34,6 @@ ActiveRecord::Schema.define(version: 20140905003142) do
   end
 
   add_index "factors", ["experiment_id"], name: "index_factors_on_experiment_id"
-
-  create_table "nodes", force: true do |t|
-    t.integer  "factorial_tree_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "parent_id"
-    t.text     "data"
-  end
-
-  add_index "nodes", ["factorial_tree_id"], name: "index_nodes_on_factorial_tree_id"
 
   create_table "surveys", force: true do |t|
     t.integer  "experiment_id"
