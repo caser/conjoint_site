@@ -1057,3 +1057,406 @@ Migrating to DeleteTreeDataStructures (20140906034621)
   [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904225711')[0m
   [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140905003142')
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "full_factorial_design" text) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) [0m
+  [1m[35m (2.0ms)[0m  CREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140906034621')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902180832')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902181405')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902185223')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902195649')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903000546')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903185124')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190231')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190921')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904180045')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904225711')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140905003142')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeFullFactorialDesignColumnName (20140906173707)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "aexperiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "design_matrix" text) [0m
+  [1m[35m (0.4ms)[0m  SELECT * FROM "experiments"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (1, '2014-09-03 18:55:56.949418', '2014-09-03 19:15:10.029833', 'title', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (2, '2014-09-03 23:58:32.946495', '2014-09-03 23:58:32.946495', 'Nulla et est ex.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (3, '2014-09-04 00:03:56.263230', '2014-09-04 00:03:56.263230', 'Nulla et est ex.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (4, '2014-09-04 00:04:10.773380', '2014-09-04 00:04:10.773380', 'Nulla et est ex.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (5, '2014-09-04 00:19:34.606745', '2014-09-04 00:19:34.606745', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (6, '2014-09-04 00:19:34.632457', '2014-09-04 00:19:34.632457', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (7, '2014-09-04 00:19:34.637798', '2014-09-04 00:19:34.637798', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (8, '2014-09-04 00:23:22.955196', '2014-09-04 00:23:22.955196', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (9, '2014-09-04 00:23:22.966922', '2014-09-04 00:23:22.966922', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (10, '2014-09-04 00:23:22.971768', '2014-09-04 00:23:22.971768', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (11, '2014-09-04 00:23:22.977119', '2014-09-04 00:23:22.977119', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (12, '2014-09-04 18:09:42.512549', '2014-09-04 18:09:42.512549', 'Et qui aut enim quod dolor.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (13, '2014-09-04 18:09:42.531369', '2014-09-04 18:09:42.531369', 'Et qui aut enim quod dolor.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (14, '2014-09-04 18:09:42.535782', '2014-09-04 18:09:42.535782', 'Et qui aut enim quod dolor.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (15, '2014-09-05 17:55:01.528927', '2014-09-05 17:55:01.528927', 'Error quia quis dicta dolor voluptas.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (16, '2014-09-05 17:55:01.542962', '2014-09-05 17:55:01.542962', 'Error quia quis dicta dolor voluptas.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (17, '2014-09-05 17:55:01.547323', '2014-09-05 17:55:01.547323', 'Error quia quis dicta dolor voluptas.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (18, '2014-09-05 18:01:56.354662', '2014-09-05 18:01:56.354662', 'Maiores ut in ea quia doloremque.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (19, '2014-09-05 18:01:56.372823', '2014-09-05 18:01:56.372823', 'Maiores ut in ea quia doloremque.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (20, '2014-09-05 18:01:56.376348', '2014-09-05 18:01:56.376348', 'Maiores ut in ea quia doloremque.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (21, '2014-09-05 19:48:21.483364', '2014-09-05 19:48:21.483364', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (22, '2014-09-05 19:48:21.504662', '2014-09-05 19:48:21.504662', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (23, '2014-09-05 19:48:21.508900', '2014-09-05 19:48:21.508900', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (24, '2014-09-05 19:53:49.311418', '2014-09-05 19:53:49.311418', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (25, '2014-09-05 19:53:49.322648', '2014-09-05 19:53:49.322648', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (26, '2014-09-05 19:53:49.327010', '2014-09-05 19:53:49.327010', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (27, '2014-09-05 19:54:43.717207', '2014-09-05 19:54:43.717207', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (28, '2014-09-05 19:54:43.730080', '2014-09-05 19:54:43.730080', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (29, '2014-09-05 19:54:43.734554', '2014-09-05 19:54:43.734554', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (30, '2014-09-05 19:55:42.867727', '2014-09-05 19:55:42.867727', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (31, '2014-09-05 19:55:42.879997', '2014-09-05 19:55:42.879997', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (32, '2014-09-05 19:55:42.884865', '2014-09-05 19:55:42.884865', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (33, '2014-09-05 19:57:50.199638', '2014-09-05 19:57:50.199638', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (34, '2014-09-05 19:57:50.211597', '2014-09-05 19:57:50.211597', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (35, '2014-09-05 19:57:50.215352', '2014-09-05 19:57:50.215352', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (36, '2014-09-05 20:27:57.805738', '2014-09-05 20:27:57.805738', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (37, '2014-09-05 20:27:57.818259', '2014-09-05 20:27:57.818259', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (38, '2014-09-05 20:27:57.822261', '2014-09-05 20:27:57.822261', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (39, '2014-09-05 20:29:41.327626', '2014-09-05 20:29:41.327626', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (40, '2014-09-05 20:29:41.338532', '2014-09-05 20:29:41.338532', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (41, '2014-09-05 20:29:41.342377', '2014-09-05 20:29:41.342377', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (42, '2014-09-05 22:45:39.060768', '2014-09-05 22:45:39.060768', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (43, '2014-09-05 22:45:39.073717', '2014-09-05 22:45:39.073717', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (44, '2014-09-05 22:45:39.080006', '2014-09-05 22:45:39.080006', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (45, '2014-09-05 22:53:52.633189', '2014-09-05 22:53:52.633189', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (46, '2014-09-05 22:53:52.645598', '2014-09-05 22:53:52.645598', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (47, '2014-09-05 22:53:52.650425', '2014-09-05 22:53:52.650425', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (48, '2014-09-05 22:54:27.974649', '2014-09-05 22:54:27.974649', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (49, '2014-09-05 22:54:27.991196', '2014-09-05 22:54:27.991196', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (50, '2014-09-05 22:54:27.996101', '2014-09-05 22:54:27.996101', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (51, '2014-09-05 22:55:35.688163', '2014-09-05 22:55:35.688163', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (52, '2014-09-05 22:55:35.699053', '2014-09-05 22:55:35.699053', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (53, '2014-09-05 22:55:35.704069', '2014-09-05 22:55:35.704069', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (54, '2014-09-05 22:56:53.527929', '2014-09-05 22:56:53.527929', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (55, '2014-09-05 22:56:53.532763', '2014-09-05 22:56:53.532763', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (56, '2014-09-05 22:56:53.536314', '2014-09-05 22:56:53.536314', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (57, '2014-09-05 22:59:10.968340', '2014-09-05 22:59:10.968340', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (58, '2014-09-05 22:59:38.913661', '2014-09-05 22:59:38.913661', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (59, '2014-09-05 23:11:59.120468', '2014-09-05 23:11:59.120468', 'Occaecati consequatur aspernatur ipsa tempora.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (60, '2014-09-05 23:16:49.989155', '2014-09-05 23:16:49.989155', 'Occaecati consequatur aspernatur ipsa tempora.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (61, '2014-09-05 23:19:00.402596', '2014-09-05 23:19:00.402596', 'Distinctio deserunt ipsam sint et.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (62, '2014-09-05 23:20:14.710704', '2014-09-05 23:20:14.710704', 'Distinctio deserunt ipsam sint et.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (63, '2014-09-05 23:25:20.387674', '2014-09-05 23:25:20.387674', 'Distinctio deserunt ipsam sint et.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (64, '2014-09-05 23:25:49.345557', '2014-09-05 23:25:49.345557', 'Eveniet ab facilis quisquam velit esse qui doloribus.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (65, '2014-09-05 23:26:07.362302', '2014-09-05 23:26:07.362302', 'Eveniet ab facilis quisquam velit esse qui doloribus.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (66, '2014-09-05 23:26:36.293842', '2014-09-05 23:26:36.293842', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (67, '2014-09-05 23:27:45.883590', '2014-09-05 23:27:45.883590', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (68, '2014-09-06 00:40:02.506730', '2014-09-06 00:40:02.506730', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (69, '2014-09-06 00:41:02.576561', '2014-09-06 00:41:02.576561', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (70, '2014-09-06 00:42:37.708191', '2014-09-06 00:42:37.708191', 'Assumenda explicabo aut corrupti autem facilis velit perspiciatis.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (71, '2014-09-06 00:44:02.573937', '2014-09-06 00:44:02.573937', 'Assumenda explicabo aut corrupti autem facilis velit perspiciatis.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (72, '2014-09-06 00:44:22.908248', '2014-09-06 00:44:22.908248', 'Neque et hic ex totam et.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (73, '2014-09-06 00:45:26.350070', '2014-09-06 00:45:26.350070', 'Quas repellendus quisquam molestias dolores at sed et.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (74, '2014-09-06 00:46:18.833865', '2014-09-06 00:46:18.833865', 'Illum fugiat quo fugit qui autem nostrum inventore.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (75, '2014-09-06 01:02:58.701032', '2014-09-06 01:02:58.701032', 'Illum fugiat quo fugit qui autem nostrum inventore.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (76, '2014-09-06 01:03:23.699204', '2014-09-06 01:03:23.699204', 'Sit enim eaque quia aut odit.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (77, '2014-09-06 01:05:51.204535', '2014-09-06 01:05:51.204535', 'Sit enim eaque quia aut odit.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (78, '2014-09-06 01:05:51.216181', '2014-09-06 01:05:51.216181', 'Sit enim eaque quia aut odit.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (79, '2014-09-06 01:05:51.221401', '2014-09-06 01:05:51.221401', 'Sit enim eaque quia aut odit.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (80, '2014-09-06 01:11:11.799827', '2014-09-06 01:11:11.799827', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (81, '2014-09-06 01:11:23.332316', '2014-09-06 01:11:23.332316', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (82, '2014-09-06 01:11:23.343197', '2014-09-06 01:11:23.343197', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (83, '2014-09-06 01:11:23.348273', '2014-09-06 01:11:23.348273', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (84, '2014-09-06 03:37:27.736863', '2014-09-06 03:37:27.736863', 'Rerum consequatur numquam corporis.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (85, '2014-09-06 03:37:39.291929', '2014-09-06 03:37:39.291929', 'Rerum consequatur numquam corporis.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aexperiments" ("id","created_at","updated_at","title","design_matrix") VALUES (86, '2014-09-06 03:37:49.509695', '2014-09-06 03:37:49.509695', 'Rerum consequatur numquam corporis.', NULL)
+  [1m[36m (8.4ms)[0m  [1mDROP TABLE "experiments"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "design_matrix" text) 
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "aexperiments"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (1, '2014-09-03 18:55:56.949418', '2014-09-03 19:15:10.029833', 'title', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (2, '2014-09-03 23:58:32.946495', '2014-09-03 23:58:32.946495', 'Nulla et est ex.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (3, '2014-09-04 00:03:56.263230', '2014-09-04 00:03:56.263230', 'Nulla et est ex.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (4, '2014-09-04 00:04:10.773380', '2014-09-04 00:04:10.773380', 'Nulla et est ex.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (5, '2014-09-04 00:19:34.606745', '2014-09-04 00:19:34.606745', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (6, '2014-09-04 00:19:34.632457', '2014-09-04 00:19:34.632457', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (7, '2014-09-04 00:19:34.637798', '2014-09-04 00:19:34.637798', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (8, '2014-09-04 00:23:22.955196', '2014-09-04 00:23:22.955196', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (9, '2014-09-04 00:23:22.966922', '2014-09-04 00:23:22.966922', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (10, '2014-09-04 00:23:22.971768', '2014-09-04 00:23:22.971768', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (11, '2014-09-04 00:23:22.977119', '2014-09-04 00:23:22.977119', 'Sed placeat dolorem fugit ut dignissimos rerum omnis magni.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (12, '2014-09-04 18:09:42.512549', '2014-09-04 18:09:42.512549', 'Et qui aut enim quod dolor.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (13, '2014-09-04 18:09:42.531369', '2014-09-04 18:09:42.531369', 'Et qui aut enim quod dolor.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (14, '2014-09-04 18:09:42.535782', '2014-09-04 18:09:42.535782', 'Et qui aut enim quod dolor.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (15, '2014-09-05 17:55:01.528927', '2014-09-05 17:55:01.528927', 'Error quia quis dicta dolor voluptas.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (16, '2014-09-05 17:55:01.542962', '2014-09-05 17:55:01.542962', 'Error quia quis dicta dolor voluptas.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (17, '2014-09-05 17:55:01.547323', '2014-09-05 17:55:01.547323', 'Error quia quis dicta dolor voluptas.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (18, '2014-09-05 18:01:56.354662', '2014-09-05 18:01:56.354662', 'Maiores ut in ea quia doloremque.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (19, '2014-09-05 18:01:56.372823', '2014-09-05 18:01:56.372823', 'Maiores ut in ea quia doloremque.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (20, '2014-09-05 18:01:56.376348', '2014-09-05 18:01:56.376348', 'Maiores ut in ea quia doloremque.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (21, '2014-09-05 19:48:21.483364', '2014-09-05 19:48:21.483364', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (22, '2014-09-05 19:48:21.504662', '2014-09-05 19:48:21.504662', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (23, '2014-09-05 19:48:21.508900', '2014-09-05 19:48:21.508900', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (24, '2014-09-05 19:53:49.311418', '2014-09-05 19:53:49.311418', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (25, '2014-09-05 19:53:49.322648', '2014-09-05 19:53:49.322648', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (26, '2014-09-05 19:53:49.327010', '2014-09-05 19:53:49.327010', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (27, '2014-09-05 19:54:43.717207', '2014-09-05 19:54:43.717207', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (28, '2014-09-05 19:54:43.730080', '2014-09-05 19:54:43.730080', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (29, '2014-09-05 19:54:43.734554', '2014-09-05 19:54:43.734554', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (30, '2014-09-05 19:55:42.867727', '2014-09-05 19:55:42.867727', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (31, '2014-09-05 19:55:42.879997', '2014-09-05 19:55:42.879997', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (32, '2014-09-05 19:55:42.884865', '2014-09-05 19:55:42.884865', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (33, '2014-09-05 19:57:50.199638', '2014-09-05 19:57:50.199638', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (34, '2014-09-05 19:57:50.211597', '2014-09-05 19:57:50.211597', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (35, '2014-09-05 19:57:50.215352', '2014-09-05 19:57:50.215352', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (36, '2014-09-05 20:27:57.805738', '2014-09-05 20:27:57.805738', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (37, '2014-09-05 20:27:57.818259', '2014-09-05 20:27:57.818259', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (38, '2014-09-05 20:27:57.822261', '2014-09-05 20:27:57.822261', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (39, '2014-09-05 20:29:41.327626', '2014-09-05 20:29:41.327626', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (40, '2014-09-05 20:29:41.338532', '2014-09-05 20:29:41.338532', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (41, '2014-09-05 20:29:41.342377', '2014-09-05 20:29:41.342377', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (42, '2014-09-05 22:45:39.060768', '2014-09-05 22:45:39.060768', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (43, '2014-09-05 22:45:39.073717', '2014-09-05 22:45:39.073717', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (44, '2014-09-05 22:45:39.080006', '2014-09-05 22:45:39.080006', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (45, '2014-09-05 22:53:52.633189', '2014-09-05 22:53:52.633189', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (46, '2014-09-05 22:53:52.645598', '2014-09-05 22:53:52.645598', 'Praesentium quos libero enim.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (47, '2014-09-05 22:53:52.650425', '2014-09-05 22:53:52.650425', 'Praesentium quos libero enim.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (48, '2014-09-05 22:54:27.974649', '2014-09-05 22:54:27.974649', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (49, '2014-09-05 22:54:27.991196', '2014-09-05 22:54:27.991196', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (50, '2014-09-05 22:54:27.996101', '2014-09-05 22:54:27.996101', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (51, '2014-09-05 22:55:35.688163', '2014-09-05 22:55:35.688163', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (52, '2014-09-05 22:55:35.699053', '2014-09-05 22:55:35.699053', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (53, '2014-09-05 22:55:35.704069', '2014-09-05 22:55:35.704069', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (54, '2014-09-05 22:56:53.527929', '2014-09-05 22:56:53.527929', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (55, '2014-09-05 22:56:53.532763', '2014-09-05 22:56:53.532763', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (56, '2014-09-05 22:56:53.536314', '2014-09-05 22:56:53.536314', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (57, '2014-09-05 22:59:10.968340', '2014-09-05 22:59:10.968340', 'Et beatae eum est soluta modi.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (58, '2014-09-05 22:59:38.913661', '2014-09-05 22:59:38.913661', 'Et beatae eum est soluta modi.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (59, '2014-09-05 23:11:59.120468', '2014-09-05 23:11:59.120468', 'Occaecati consequatur aspernatur ipsa tempora.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (60, '2014-09-05 23:16:49.989155', '2014-09-05 23:16:49.989155', 'Occaecati consequatur aspernatur ipsa tempora.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (61, '2014-09-05 23:19:00.402596', '2014-09-05 23:19:00.402596', 'Distinctio deserunt ipsam sint et.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (62, '2014-09-05 23:20:14.710704', '2014-09-05 23:20:14.710704', 'Distinctio deserunt ipsam sint et.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (63, '2014-09-05 23:25:20.387674', '2014-09-05 23:25:20.387674', 'Distinctio deserunt ipsam sint et.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (64, '2014-09-05 23:25:49.345557', '2014-09-05 23:25:49.345557', 'Eveniet ab facilis quisquam velit esse qui doloribus.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (65, '2014-09-05 23:26:07.362302', '2014-09-05 23:26:07.362302', 'Eveniet ab facilis quisquam velit esse qui doloribus.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (66, '2014-09-05 23:26:36.293842', '2014-09-05 23:26:36.293842', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (67, '2014-09-05 23:27:45.883590', '2014-09-05 23:27:45.883590', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (68, '2014-09-06 00:40:02.506730', '2014-09-06 00:40:02.506730', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (69, '2014-09-06 00:41:02.576561', '2014-09-06 00:41:02.576561', 'Quia fugiat tempora doloremque maiores sapiente voluptatem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (70, '2014-09-06 00:42:37.708191', '2014-09-06 00:42:37.708191', 'Assumenda explicabo aut corrupti autem facilis velit perspiciatis.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (71, '2014-09-06 00:44:02.573937', '2014-09-06 00:44:02.573937', 'Assumenda explicabo aut corrupti autem facilis velit perspiciatis.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (72, '2014-09-06 00:44:22.908248', '2014-09-06 00:44:22.908248', 'Neque et hic ex totam et.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (73, '2014-09-06 00:45:26.350070', '2014-09-06 00:45:26.350070', 'Quas repellendus quisquam molestias dolores at sed et.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (74, '2014-09-06 00:46:18.833865', '2014-09-06 00:46:18.833865', 'Illum fugiat quo fugit qui autem nostrum inventore.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (75, '2014-09-06 01:02:58.701032', '2014-09-06 01:02:58.701032', 'Illum fugiat quo fugit qui autem nostrum inventore.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (76, '2014-09-06 01:03:23.699204', '2014-09-06 01:03:23.699204', 'Sit enim eaque quia aut odit.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (77, '2014-09-06 01:05:51.204535', '2014-09-06 01:05:51.204535', 'Sit enim eaque quia aut odit.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (78, '2014-09-06 01:05:51.216181', '2014-09-06 01:05:51.216181', 'Sit enim eaque quia aut odit.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (79, '2014-09-06 01:05:51.221401', '2014-09-06 01:05:51.221401', 'Sit enim eaque quia aut odit.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (80, '2014-09-06 01:11:11.799827', '2014-09-06 01:11:11.799827', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (81, '2014-09-06 01:11:23.332316', '2014-09-06 01:11:23.332316', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (82, '2014-09-06 01:11:23.343197', '2014-09-06 01:11:23.343197', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (83, '2014-09-06 01:11:23.348273', '2014-09-06 01:11:23.348273', 'Ut eum dolor aut ut doloremque dignissimos dolorem.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (84, '2014-09-06 03:37:27.736863', '2014-09-06 03:37:27.736863', 'Rerum consequatur numquam corporis.', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (85, '2014-09-06 03:37:39.291929', '2014-09-06 03:37:39.291929', 'Rerum consequatur numquam corporis.', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "experiments" ("id","created_at","updated_at","title","design_matrix") VALUES (86, '2014-09-06 03:37:49.509695', '2014-09-06 03:37:49.509695', 'Rerum consequatur numquam corporis.', NULL)[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "aexperiments"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140906173707"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "design_matrix" text) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) [0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140906173707')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902180832')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902181405')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902185223')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902195649')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903000546')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903185124')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190231')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190921')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904180045')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904225711')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140905003142')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140906034621')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "design_matrix" text) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140906173707')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902180832')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902181405')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902185223')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902195649')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903000546')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903185124')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190231')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190921')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904180045')
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904225711')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140905003142')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140906034621')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "design_matrix" text) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) [0m
+  [1m[35m (1.6ms)[0m  CREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.8ms)[0m  CREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140906173707')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902180832')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902181405')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902185223')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902195649')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903000546')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903185124')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190231')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190921')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904180045')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904225711')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140905003142')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140906034621')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:45:57 UTC +00:00], ["design_matrix", nil], ["title", "Autem aliquam sunt quasi."], ["updated_at", Sat, 06 Sep 2014 17:45:57 UTC +00:00]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:45:57 UTC +00:00], ["design_matrix", nil], ["title", "Autem aliquam sunt quasi."], ["updated_at", Sat, 06 Sep 2014 17:45:57 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:45:57 UTC +00:00], ["design_matrix", nil], ["title", "Autem aliquam sunt quasi."], ["updated_at", Sat, 06 Sep 2014 17:45:57 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:46:51 UTC +00:00], ["design_matrix", nil], ["title", "Autem aliquam sunt quasi."], ["updated_at", Sat, 06 Sep 2014 17:46:51 UTC +00:00]]
+  [1m[35m (10.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:46:51 UTC +00:00], ["design_matrix", nil], ["title", "Autem aliquam sunt quasi."], ["updated_at", Sat, 06 Sep 2014 17:46:51 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:46:51 UTC +00:00], ["design_matrix", nil], ["title", "Autem aliquam sunt quasi."], ["updated_at", Sat, 06 Sep 2014 17:46:51 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:47:20 UTC +00:00], ["design_matrix", nil], ["title", "Repellendus eveniet tempora ea et sit eos nemo est."], ["updated_at", Sat, 06 Sep 2014 17:47:20 UTC +00:00]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:47:20 UTC +00:00], ["design_matrix", nil], ["title", "Repellendus eveniet tempora ea et sit eos nemo est."], ["updated_at", Sat, 06 Sep 2014 17:47:20 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:47:20 UTC +00:00], ["design_matrix", nil], ["title", "Repellendus eveniet tempora ea et sit eos nemo est."], ["updated_at", Sat, 06 Sep 2014 17:47:20 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:49:29 UTC +00:00], ["design_matrix", nil], ["title", "Soluta commodi doloremque facere."], ["updated_at", Sat, 06 Sep 2014 17:49:29 UTC +00:00]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:29 UTC +00:00], ["design_matrix", nil], ["title", "Soluta commodi doloremque facere."], ["updated_at", Sat, 06 Sep 2014 17:49:29 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:49:29 UTC +00:00], ["design_matrix", nil], ["title", "Soluta commodi doloremque facere."], ["updated_at", Sat, 06 Sep 2014 17:49:29 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00], ["design_matrix", nil], ["title", "Soluta commodi doloremque facere."], ["updated_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 99]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00], ["experiment_id", 99], ["levels", "---\n- et\n- quis\n- magnam\n"], ["title", "Architecto"], ["updated_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 99]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00], ["experiment_id", 99], ["levels", "---\n- et\n- quis\n- magnam\n"], ["title", "Architecto"], ["updated_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 99]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00], ["experiment_id", 99], ["levels", "---\n- et\n- quis\n- magnam\n"], ["title", "Architecto"], ["updated_at", Sat, 06 Sep 2014 17:49:30 UTC +00:00]]
+  [1m[35m (8.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:49:51 UTC +00:00], ["design_matrix", nil], ["title", "Ex velit voluptate sint suscipit."], ["updated_at", Sat, 06 Sep 2014 17:49:51 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:51 UTC +00:00], ["design_matrix", nil], ["title", "Ex velit voluptate sint suscipit."], ["updated_at", Sat, 06 Sep 2014 17:49:51 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 17:49:51 UTC +00:00], ["design_matrix", nil], ["title", "Ex velit voluptate sint suscipit."], ["updated_at", Sat, 06 Sep 2014 17:49:51 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00], ["design_matrix", "---\n- - voluptates\n  - voluptates\n  - voluptates\n- - voluptates\n  - voluptates\n  - qui\n- - voluptates\n  - voluptates\n  - est\n- - voluptates\n  - voluptates\n  - enim\n- - voluptates\n  - qui\n  - voluptates\n- - voluptates\n  - qui\n  - qui\n- - voluptates\n  - qui\n  - est\n- - voluptates\n  - qui\n  - enim\n- - voluptates\n  - est\n  - voluptates\n- - voluptates\n  - est\n  - qui\n- - voluptates\n  - est\n  - est\n- - voluptates\n  - est\n  - enim\n- - voluptates\n  - enim\n  - voluptates\n- - voluptates\n  - enim\n  - qui\n- - voluptates\n  - enim\n  - est\n- - voluptates\n  - enim\n  - enim\n- - qui\n  - voluptates\n  - voluptates\n- - qui\n  - voluptates\n  - qui\n- - qui\n  - voluptates\n  - est\n- - qui\n  - voluptates\n  - enim\n- - qui\n  - qui\n  - voluptates\n- - qui\n  - qui\n  - qui\n- - qui\n  - qui\n  - est\n- - qui\n  - qui\n  - enim\n- - qui\n  - est\n  - voluptates\n- - qui\n  - est\n  - qui\n- - qui\n  - est\n  - est\n- - qui\n  - est\n  - enim\n- - qui\n  - enim\n  - voluptates\n- - qui\n  - enim\n  - qui\n- - qui\n  - enim\n  - est\n- - qui\n  - enim\n  - enim\n- - est\n  - voluptates\n  - voluptates\n- - est\n  - voluptates\n  - qui\n- - est\n  - voluptates\n  - est\n- - est\n  - voluptates\n  - enim\n- - est\n  - qui\n  - voluptates\n- - est\n  - qui\n  - qui\n- - est\n  - qui\n  - est\n- - est\n  - qui\n  - enim\n- - est\n  - est\n  - voluptates\n- - est\n  - est\n  - qui\n- - est\n  - est\n  - est\n- - est\n  - est\n  - enim\n- - est\n  - enim\n  - voluptates\n- - est\n  - enim\n  - qui\n- - est\n  - enim\n  - est\n- - est\n  - enim\n  - enim\n- - enim\n  - voluptates\n  - voluptates\n- - enim\n  - voluptates\n  - qui\n- - enim\n  - voluptates\n  - est\n- - enim\n  - voluptates\n  - enim\n- - enim\n  - qui\n  - voluptates\n- - enim\n  - qui\n  - qui\n- - enim\n  - qui\n  - est\n- - enim\n  - qui\n  - enim\n- - enim\n  - est\n  - voluptates\n- - enim\n  - est\n  - qui\n- - enim\n  - est\n  - est\n- - enim\n  - est\n  - enim\n- - enim\n  - enim\n  - voluptates\n- - enim\n  - enim\n  - qui\n- - enim\n  - enim\n  - est\n- - enim\n  - enim\n  - enim\n"], ["title", "Ex velit voluptate sint suscipit."], ["updated_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 103]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00], ["experiment_id", 103], ["levels", "---\n- voluptates\n- qui\n- est\n- enim\n"], ["title", "Autem"], ["updated_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 103]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00], ["experiment_id", 103], ["levels", "---\n- voluptates\n- qui\n- est\n- enim\n"], ["title", "Autem"], ["updated_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 103]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00], ["experiment_id", 103], ["levels", "---\n- voluptates\n- qui\n- est\n- enim\n"], ["title", "Autem"], ["updated_at", Sat, 06 Sep 2014 17:49:54 UTC +00:00]]
+  [1m[35m (8.1ms)[0m  commit transaction
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE "experiment_designers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "experiments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "design_matrix" text) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "factors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime, "title" varchar(255), "levels" text) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_factors_on_experiment_id" ON "factors" ("experiment_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "experiment_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_surveys_on_experiment_id" ON "surveys" ("experiment_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140906173707')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902180832')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902181405')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140902185223')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140902195649')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903000546')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903185124')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903190231')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140903190921')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140903235944')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904180045')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904225711')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140905003142')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140906034621')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 19:26:01 UTC +00:00], ["design_matrix", nil], ["title", "Est amet qui consequatur rerum fugit dolorem."], ["updated_at", Sat, 06 Sep 2014 19:26:01 UTC +00:00]]
+  [1m[36mFactor Load (0.3ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 104]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 19:26:42 UTC +00:00], ["design_matrix", nil], ["title", "Est amet qui consequatur rerum fugit dolorem."], ["updated_at", Sat, 06 Sep 2014 19:26:42 UTC +00:00]]
+  [1m[36mFactor Load (0.1ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 104]]
+  [1m[35m (7.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 19:27:13 UTC +00:00], ["design_matrix", nil], ["title", "Est amet qui consequatur rerum fugit dolorem."], ["updated_at", Sat, 06 Sep 2014 19:27:13 UTC +00:00]]
+  [1m[36mFactor Load (0.1ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 104]]
+  [1m[35m (7.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 19:27:36 UTC +00:00], ["design_matrix", nil], ["title", "Ratione quis in sapiente quo ab."], ["updated_at", Sat, 06 Sep 2014 19:27:36 UTC +00:00]]
+  [1m[36mFactor Load (0.2ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 104]]
+  [1m[35m (7.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 19:33:51 UTC +00:00], ["design_matrix", nil], ["title", "Ratione quis in sapiente quo ab."], ["updated_at", Sat, 06 Sep 2014 19:33:51 UTC +00:00]]
+  [1m[36mFactor Load (0.1ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 104]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 06 Sep 2014 19:50:18 UTC +00:00], ["design_matrix", nil], ["title", "Eos alias non esse enim earum qui."], ["updated_at", Sat, 06 Sep 2014 19:50:18 UTC +00:00]]
+  [1m[36mFactor Load (0.2ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 104]]
+  [1m[35m (7.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 07 Sep 2014 00:34:11 UTC +00:00], ["design_matrix", nil], ["title", "Tempora sed est vel eum occaecati maiores veritatis."], ["updated_at", Sun, 07 Sep 2014 00:34:11 UTC +00:00]]
+  [1m[36m (5.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 07 Sep 2014 00:34:11 UTC +00:00], ["design_matrix", nil], ["title", "Tempora sed est vel eum occaecati maiores veritatis."], ["updated_at", Sun, 07 Sep 2014 00:34:11 UTC +00:00]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 07 Sep 2014 00:34:11 UTC +00:00], ["design_matrix", nil], ["title", "Tempora sed est vel eum occaecati maiores veritatis."], ["updated_at", Sun, 07 Sep 2014 00:34:11 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 07 Sep 2014 16:16:40 UTC +00:00], ["design_matrix", nil], ["title", "Corrupti aut libero aut maiores ea."], ["updated_at", Sun, 07 Sep 2014 16:16:40 UTC +00:00]]
+  [1m[36mFactor Load (0.3ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."experiment_id" = ?[0m  [["experiment_id", 107]]
+  [1m[35m (0.9ms)[0m  rollback transaction

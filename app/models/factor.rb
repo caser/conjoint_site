@@ -6,6 +6,10 @@ class Factor < ActiveRecord::Base
 
   validates :title, :levels, presence: true
 
+  after_initialize do
+    self.levels = []
+  end
+
   def clone
     new_factor = Factor.new
 

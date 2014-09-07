@@ -1,11 +1,13 @@
 class ExperimentDesigner < ActiveRecord::Base
   def self.build_factorial_design(experiment)
     factors = experiment.factors
-    number_of_factors = factors.length
-
-    combinations = ExperimentDesigner.get_all_combinations(factors)
-
-    return combinations
+    unless factors.empty?
+      number_of_factors = factors.length
+      combinations = ExperimentDesigner.get_all_combinations(factors)
+      return combinations
+    else
+      return nil
+    end
   end
 
   def self.get_all_combinations(factors, combinations = [])

@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :survey do
-    experiment nil
+    experiment
   end
 end
