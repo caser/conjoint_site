@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906173707) do
+ActiveRecord::Schema.define(version: 20140908234054) do
 
   create_table "experiment_designers", force: true do |t|
     t.datetime "created_at"
@@ -35,10 +35,25 @@ ActiveRecord::Schema.define(version: 20140906173707) do
 
   add_index "factors", ["experiment_id"], name: "index_factors_on_experiment_id"
 
+  create_table "respondents", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "response_sets", force: true do |t|
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "survey_id"
+  end
+
+  add_index "response_sets", ["survey_id"], name: "index_response_sets_on_survey_id"
+
   create_table "surveys", force: true do |t|
     t.integer  "experiment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   add_index "surveys", ["experiment_id"], name: "index_surveys_on_experiment_id"

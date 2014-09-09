@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :survey do
-    experiment
+    title Faker::Lorem.sentence
+    association :experiment, factory: :experiment_with_factors
   end
 end
