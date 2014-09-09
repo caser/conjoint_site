@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Respondent do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have many response sets" do
+    association = Respondent.reflect_on_association(:response_sets)
+    association.macro.should eql(:has_many)
+  end
 end

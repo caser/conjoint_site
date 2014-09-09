@@ -17616,3 +17616,609 @@ TypeError: can't cast Array to text: INSERT INTO "response_sets" ("created_at", 
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 00:50:57 UTC +00:00], ["design_matrix", nil], ["title", "Ab eligendi et nostrum voluptas fugiat dolor."], ["updated_at", Tue, 09 Sep 2014 00:50:57 UTC +00:00]]
   [1m[35mFactor Exists (0.0ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
   [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (10.3ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.5ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM "factors";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'factors';
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM "respondents";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'respondents';[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM "response_sets";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'response_sets';
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.2ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.0ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36m (1.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.3ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Eos neque eos aut tempore nesciunt nihil.' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.2ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "response_sets" ("created_at", "data", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["data", "---\n- - true\n  - a\n  - 2\n  - green\n- - false\n  - z\n  - 9\n  - yellow\n- - false\n  - c\n  - 4\n  - blue\n"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mResponseSet Load (0.3ms)[0m  [1mSELECT "response_sets".* FROM "response_sets" WHERE "response_sets"."id" = 1 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["design_matrix", nil], ["title", "Eos neque eos aut tempore nesciunt nihil."], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- eum\n- dolores\n- natus\n- voluptate\n"], ["title", "Laudantium"], ["updated_at", Tue, 09 Sep 2014 22:54:49 UTC +00:00]]
+  [1m[35mFactor Load (0.4ms)[0m  SELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Laudantium' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM "experiment_designers";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'experiment_designers';
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "experiments";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'experiments';[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "factors";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'factors';
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "respondents";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'respondents';[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "response_sets";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'response_sets';
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "surveys";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'surveys';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:17 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:17 UTC +00:00]]
+  [1m[35mFactor Exists (0.3ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36m (7.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mExperiment Load (0.3ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mExperiment Load (0.2ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 1], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Load (0.3ms)[0m  [1mSELECT "factors".* FROM "factors" WHERE "factors"."title" = 'Eaque' LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "response_sets" ("created_at", "data", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["data", "---\n- - true\n  - a\n  - 2\n  - green\n- - false\n  - z\n  - 9\n  - yellow\n- - false\n  - c\n  - 4\n  - blue\n"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mResponseSet Load (0.2ms)[0m  [1mSELECT "response_sets".* FROM "response_sets" WHERE "response_sets"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.0ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."title" = 'Excepturi consequatur ut beatae.' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 2]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mFactor Exists (0.1ms)[0m  SELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1  [["experiment_id", 3]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35mExperiment Load (0.1ms)[0m  SELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mFactor Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "factors" WHERE "factors"."experiment_id" = ? LIMIT 1[0m  [["experiment_id", 3]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "experiments" ("created_at", "design_matrix", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["design_matrix", nil], ["title", "Excepturi consequatur ut beatae."], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.2ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36mExperiment Load (0.1ms)[0m  [1mSELECT "experiments".* FROM "experiments" WHERE "experiments"."id" = ? ORDER BY "experiments"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "factors" ("created_at", "experiment_id", "levels", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00], ["experiment_id", 4], ["levels", "---\n- ratione\n- quis\n- nobis\n- numquam\n"], ["title", "Eaque"], ["updated_at", Tue, 09 Sep 2014 22:57:18 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
