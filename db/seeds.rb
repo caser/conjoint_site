@@ -1,20 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# Seed experiments
 puts "Seeding experiments..."
 10.times do
   experiment = Experiment.create(title: Faker::Lorem.sentence)
@@ -29,9 +12,6 @@ experiments = Experiment.all
   factor.save
   experiments.sample.factors << factor
 end
-factor = Factor.first
-puts "factor is: #{factor.inspect}"
-puts "factor_experiment is: #{factor.experiment.inspect}"
 
 # Seed surveys
 puts "Seeding surveys..."
@@ -41,6 +21,7 @@ experiments.each do |experiment|
 end
 
 # Seed response sets
+puts "Seeding response sets..."
 surveys = Survey.all
 surveys.each do |survey|
   15.times do
@@ -56,8 +37,11 @@ surveys.each do |survey|
 end
 
 # Seed respondents
+puts "Seeding respondents..."
 response_sets = ResponseSet.all
 response_sets.each do |response_set|
   respondent = Respondent.create()
   response_set.respondent = respondent
 end
+
+puts "Seed complete."

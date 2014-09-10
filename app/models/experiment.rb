@@ -7,8 +7,7 @@ class Experiment < ActiveRecord::Base
   validates :title, presence: true
 
   def generate_design_matrix
-    return self.design_matrix = ExperimentDesigner.build_factorial_design(self)
-    self.save
+    self.design_matrix = ExperimentDesigner.build_factorial_design(self)
   end
 
   def design_matrix
@@ -19,5 +18,9 @@ class Experiment < ActiveRecord::Base
 
   def design_matrix
     self.original_design_matrix || self.generate_design_matrix
+  end
+
+  def design_matrix=(matrix)
+    self[:design_matrix] = matrix
   end
 end
