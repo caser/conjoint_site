@@ -1,4 +1,7 @@
 ConjointSite::Application.routes.draw do
+  get "experiments/index"
+  get "experiments/new"
+  get "experiments/edit"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
