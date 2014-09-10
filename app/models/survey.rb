@@ -9,6 +9,7 @@ class Survey < ActiveRecord::Base
   end
 
   def generate_choice_set(length = 3)
+    experiment.generate_design_matrix
     choice_set = experiment.design_matrix.sample(length)
   end
 end

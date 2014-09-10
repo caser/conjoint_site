@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908234054) do
+ActiveRecord::Schema.define(version: 20140910003911) do
 
   create_table "experiment_designers", force: true do |t|
     t.datetime "created_at"
@@ -45,8 +45,10 @@ ActiveRecord::Schema.define(version: 20140908234054) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "survey_id"
+    t.integer  "respondent_id"
   end
 
+  add_index "response_sets", ["respondent_id"], name: "index_response_sets_on_respondent_id"
   add_index "response_sets", ["survey_id"], name: "index_response_sets_on_survey_id"
 
   create_table "surveys", force: true do |t|
