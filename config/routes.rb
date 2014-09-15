@@ -1,7 +1,10 @@
 ConjointSite::Application.routes.draw do
-  get "experiments/index"
+  resources :experiments
+
+  get "experiments", to: 'experiments#index'
   get "experiments/new"
-  get "experiments/edit"
+  get "experiments/:id/edit", to: 'experiments#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

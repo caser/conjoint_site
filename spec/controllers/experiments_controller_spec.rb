@@ -3,23 +3,27 @@ require 'spec_helper'
 describe ExperimentsController do
 
   describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+    it "renders the index view" do
+      get :index
+      response.should render_template("index")
+    end
+
+    it "should populate an array of experiments" do
+      experiment = create(:experiment)
+      get :index
+      assigns(:experiments).should eq([experiment])
     end
   end
 
   describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+    it "renders the new view" do
+      
     end
   end
 
   describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
+    it "renders the edit view" do
+      
     end
   end
 
