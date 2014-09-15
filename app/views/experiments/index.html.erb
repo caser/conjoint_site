@@ -1,3 +1,35 @@
-<% @experiments.each do |experiment| %>
-  <p><%= experiment.inspect %></p>
-<% end %>
+<div class="container">
+  <div class="panel panel-default">
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="25%">Title</th>
+          <th width="15%">Number of Factors</th>
+          <th>Factors</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @experiments.each do |experiment| %>
+          <tr>
+            <td><%= experiment.title %></td>
+            <td><%= experiment.factors.length %></td>
+            <td>
+              <ul>
+                <% experiment.factors.each do |factor| %>
+                  <li><%= factor.title %></i>
+                <% end %>
+              </ul>
+            </td>
+            <td>
+              <a class="btn btn-success" href="#">Manage Survey</a>
+              <a class="btn btn-success" href="#">Edit</a>
+              <a class="btn btn-success" href="#">Delete</a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
